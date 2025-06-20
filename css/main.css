@@ -1,0 +1,17 @@
+@import '../node_modules/bootstrap-icons/font/bootstrap-icons.min.css';
+
+:root {
+  --bg-color: #f0ecff;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+button:focus {
+  box-shadow: none !important;
+}
+
+.container {
+  max-width: 1000px;
+}

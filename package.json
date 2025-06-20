@@ -1,23 +1,15 @@
 {
-  "name": "mini-social-media",
+  "name": "social-media-website",
   "version": "1.0.0",
-  "description": "",
-  "homepage": "https://github.com/AmmarWebDev/mini-social-media#readme",
-  "bugs": {
-    "url": "https://github.com/AmmarWebDev/mini-social-media/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AmmarWebDev/mini-social-media.git"
-  },
-  "license": "MIT",
-  "author": "Ammar Nasr",
-  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "Ammar Nasr & Abdelrahman Ahmed",
+  "license": "MIT",
+  "description": "",
   "dependencies": {
-    "bootstrap": "^5.3.7"
+    "bootstrap": "^5.3.6",
+    "bootstrap-icons": "^1.13.1"
   }
 }

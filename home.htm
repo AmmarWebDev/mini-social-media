@@ -3,44 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mini Social Media</title>
+  <title>Mini | Social Media Website</title>
   <!-- Bootstrap -->
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
-  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Our Custom CSS -->
-  <link rel="stylesheet" href="css/main.min.css" />
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- main files -->
+  <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
   <div class="container">
-    <nav class="navbar navbar-expand-lg bg-primary rounded" data-bs-theme="dark">
+    <!--|| NAVBAR ||-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow rounded-bottom pt-3">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Mini</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand fs-2" href="#">Mini</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+          <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
-          </ul>
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="ms-2">
-              <button type="button" class="btn btn-outline-light">
-                Sign in
-              </button>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Profile</a>
             </li>
-            <li class="ms-2">
-              <button type="button" class="btn btn-outline-light">
-                Register
-              </button>
+          </ul>
+          <ul class="navbar-nav d-block ms-auto" style="width: fit-content;">
+            <li class="mx-2 d-inline-block">
+              <button type="button" class="btn btn-outline-success">Login</button>
+            </li>
+            <li class="mt-2 mt-lg-0 d-inline-block">
+              <button type="button" class="btn btn-outline-success">Register</button>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+
+    <!--|| POSTS ||-->
+    <div class="card my-5 shadow">
+      <header class="card-header">
+        <img
+          src="https://placehold.jp/20/adadad/000000/50x50.png?text=%3F"
+          alt="50x50 image"
+          class="rounded-circle  border border-2"
+        />
+        <p class="d-inline-block fw-medium fs-5">@Ammar1234</p>
+        <h6 class="d-inline-block fw-light ms-2">6 hours ago</h6>
+      </header>
+      <div class="card-body">
+        <img
+          src="images/poster1.png"
+          alt="poster image"
+          class="w-100"
+        />
+        <h4 class="card-title mt-3">Hello world</h4>
+        <p class="card-text">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          Iusto necessitatibus quod optio ea consequatur voluptate
+          quas fugit accusantium eveniet, dolorum nesciunt odio
+          quidem architecto quibusdam, sit repudiandae modi officia
+          totam.
+        </p>
+      </div>
+      <footer class="card-footer">
+        <span class="fs-5">
+          <i class="bi bi-chat-dots"></i>
+          (4) Comments
+        </span>
+      </footer>
+    </div>
   </div>
-  
-  <script src="js/main.js"></script>
 </body>
 </html>
