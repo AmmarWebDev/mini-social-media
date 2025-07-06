@@ -7,13 +7,122 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <!-- main files -->
+  <!-- Axios -->
+  <script src="node_modules/axios/dist/axios.min.js"></script>
+  <!-- Main CSS File -->
   <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
+  <!--=== MODALS ===-->
+  <!--|| Login Modal ||-->
+  <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Username:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="login-username"
+                autocomplete="username"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Password:</label>
+              <input
+                type="password"
+                class="form-control"
+                id="login-password"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >Close</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            onclick="loginRequest()"
+          >Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--|| Register Modal ||-->
+  <div class="modal fade" id="register-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Register</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="register-name" class="col-form-label">Name:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="register-name"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="register-username" class="col-form-label">Username:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="register-username"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="register-email" class="col-form-label">Email:</label>
+              <input
+                type="email"
+                class="form-control"
+                id="register-email"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="register-password" class="col-form-label">Password:</label>
+              <input
+                type="password"
+                class="form-control"
+                id="register-password"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >Close</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            onclick="registerRequest()"
+          >Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <div class="container">
     <!--|| NAVBAR ||-->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow rounded-bottom pt-3">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow rounded-bottom pt-3 mb-5">
       <div class="container-fluid">
         <a class="navbar-brand fs-2" href="#">Mini</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,50 +138,49 @@
             </li>
           </ul>
           <ul class="navbar-nav d-block ms-auto" style="width: fit-content;">
-            <li class="mx-2 d-inline-block">
-              <button type="button" class="btn btn-outline-success">Login</button>
+            <li class="d-inline-block">
+              <button
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#login-modal"
+                class="btn btn-outline-success"
+                id="navbar-login-btn"
+              >Login</button>
             </li>
-            <li class="mt-2 mt-lg-0 d-inline-block">
-              <button type="button" class="btn btn-outline-success">Register</button>
+            <li class="mt-lg-0 d-inline-block">
+              <button
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#register-modal"
+                class="btn btn-outline-success"
+                id="navbar-register-btn"
+              >Register</button>
+            </li>
+            <li class="mt-lg-0 d-inline-block">
+              <button
+                type="button"
+                class="btn btn-outline-danger"
+                id="navbar-logout-btn"
+                onclick="logout()"
+              >Logout</button>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
+    <!--|| ALERTS ||-->
+    <div class="alerts-wrapper">
+      <!-- will be populated with js -->
+    </div>
+
     <!--|| POSTS ||-->
-    <div class="card my-5 shadow">
-      <header class="card-header">
-        <img
-          src="https://placehold.jp/20/adadad/000000/50x50.png?text=%3F"
-          alt="50x50 image"
-          class="rounded-circle  border border-2"
-        />
-        <p class="d-inline-block fw-medium fs-5">@Ammar1234</p>
-        <h6 class="d-inline-block fw-light ms-2">6 hours ago</h6>
-      </header>
-      <div class="card-body">
-        <img
-          src="images/poster1.png"
-          alt="poster image"
-          class="w-100"
-        />
-        <h4 class="card-title mt-3">Hello world</h4>
-        <p class="card-text">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          Iusto necessitatibus quod optio ea consequatur voluptate
-          quas fugit accusantium eveniet, dolorum nesciunt odio
-          quidem architecto quibusdam, sit repudiandae modi officia
-          totam.
-        </p>
-      </div>
-      <footer class="card-footer">
-        <span class="fs-5">
-          <i class="bi bi-chat-dots"></i>
-          (4) Comments
-        </span>
-      </footer>
+    <div class="posts-wrapper">
+      <!-- will be populated with js -->
     </div>
   </div>
+
+  <!-- Main JS File -->
+  <script src="js/main.js"></script>
 </body>
 </html>
